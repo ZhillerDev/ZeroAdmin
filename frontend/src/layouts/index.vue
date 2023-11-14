@@ -39,7 +39,6 @@ const handleClickOutside = () => {
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
         <nav-bar/>
-        <tags-bar/>
       </div>
       <app-main class="app-main"/>
     </div>
@@ -68,9 +67,9 @@ $transition-time: 0.35s;
 }
 
 .sidebar-container {
-  background-color: var(--v3-sidebar-menu-bg-color);
   transition: width $transition-time;
   width: var(--v3-sidebar-width) !important;
+  background-color: white;
   height: 100%;
   position: fixed;
   top: 0;

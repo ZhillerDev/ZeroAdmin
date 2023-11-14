@@ -12,11 +12,16 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Screenfull: typeof import('./src/components/Screenfull/index.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
+    TBreadcrumb: typeof import('tdesign-vue-next')['Breadcrumb']
+    TBreadcrumbItem: typeof import('tdesign-vue-next')['BreadcrumbItem']
     TButton: typeof import('tdesign-vue-next')['Button']
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider']
     TDropdown: typeof import('tdesign-vue-next')['Dropdown']
     ThemeSwitch: typeof import('./src/components/ThemeSwitch/index.vue')['default']
     TIcon: typeof import('tdesign-vue-next')['Icon']
+    TMenu: typeof import('tdesign-vue-next')['Menu']
+    TMenuItem: typeof import('tdesign-vue-next')['MenuItem']
+    TSubmenu: typeof import('tdesign-vue-next')['Submenu']
     TTooltip: typeof import('tdesign-vue-next')['Tooltip']
   }
 }
