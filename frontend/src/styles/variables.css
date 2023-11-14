@@ -9,7 +9,7 @@
     --v3-navigationbar-height: 50px;
     /** SideBar 组件（左侧模式全部生效、顶部模式全部不生效、混合模式非颜色部分生效） */
     --v3-sidebar-width: 220px;
-    --v3-sidebar-hide-width: 58px;
+    --v3-sidebar-hide-width: 64px;
     --v3-sidebar-menu-item-height: 60px;
     --v3-sidebar-menu-tip-line-bg-color: var(--el-color-primary);
     --v3-sidebar-menu-bg-color: #001428;

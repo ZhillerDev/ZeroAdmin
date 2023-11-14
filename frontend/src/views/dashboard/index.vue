@@ -1,6 +1,6 @@
 <template>
-  <div class="app-container center">
-    <div>首屏展示</div>
+  <div id="dashboard" class="app-container center">
+    <div style="height: 1000px;">首屏展示</div>
   </div>
 </template>
 

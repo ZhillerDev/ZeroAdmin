@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FooterBar from './FooterBar/index.vue'
+import BackToTop from './BackToTop/index.vue'
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import FooterBar from './FooterBar/index.vue'
       </router-view>
       <footer-bar/>
     </div>
+<!--    <back-to-top class="back-top"/>-->
   </section>
 </template>
 
@@ -36,5 +38,12 @@ import FooterBar from './FooterBar/index.vue'
   .app-container-grow {
     flex-grow: 1;
   }
+}
+
+.back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 </style>
