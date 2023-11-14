@@ -1,0 +1,10 @@
+
+/*设置全局样式*/
+#app {
+  color: $font-color;
+  background-color: $theme-bg-color;
+  // 右侧设置面板
+  .handle-button {
+    background-color: lighten($theme-bg-color, 20%) !important;
+  }
+}
