@@ -1,6 +1,6 @@
 <template>
   <div class="app-container center">
-    <div style="height: 1000px;">fuck</div>
+    <div>首屏展示</div>
   </div>
 </template>
 
@@ -12,4 +12,5 @@
 }
 </style>
 <script setup lang="ts">
+import SvgIcon from '@/components/SvgIcon/index.vue';
 </script>

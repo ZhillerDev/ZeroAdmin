@@ -1,7 +1,6 @@
-
-
 /*根据传入的样式名称改变全局样式*/
 .#{$theme-name} {
   @import "./login.scss";
   @import "./layout.scss";
+  @import "./other.scss";
 }

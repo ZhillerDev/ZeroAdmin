@@ -23,7 +23,6 @@ import FooterBar from './FooterBar/index.vue'
 
 .app-main {
   width: 100%;
-  background-color: var(--v3-body-bg-color);
   display: flex;
 }
 
