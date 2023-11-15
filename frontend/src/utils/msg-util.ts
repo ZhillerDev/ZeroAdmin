@@ -1,6 +1,6 @@
 import {MessagePlacementList, MessagePlugin, DialogPlugin} from "tdesign-vue-next";
 
-
+// 成功消息提示
 export const msgSuccess = (title: string, placement: MessagePlacementList, duration: number) => {
     MessagePlugin.success({
         content: title,
@@ -9,6 +9,7 @@ export const msgSuccess = (title: string, placement: MessagePlacementList, durat
     })
 }
 
+// 错误消息提示
 export const msgError = (title: string, placement: MessagePlacementList, duration: number) => {
     MessagePlugin.error({
         content: title,
@@ -17,14 +18,16 @@ export const msgError = (title: string, placement: MessagePlacementList, duratio
     })
 }
 
-export const dialogConfirm = (title:string,content:string,listener:()=>any) => {
+// 带确认取消按钮的对话框
+// 包含一个回调函数用于确认用户点击状态
+export const dialogConfirm = (title: string, content: string, onSuccess: () => any = {}) => {
     const dialog = DialogPlugin.confirm({
-        header:title,
-        body:content,
-        onConfirm(){
+        header: title,
+        body: content,
+        onConfirm() {
             dialog.destroy()
             console.log("is destryo")
-            listener()
+            onSuccess()
         }
     })
     dialog.show()
