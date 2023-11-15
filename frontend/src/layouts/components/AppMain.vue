@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import FooterBar from './FooterBar/index.vue'
-import BackToTop from './BackToTop/index.vue'
+import {useSettingsStore} from "@/store/module/settings.ts";
+
+const settingsStore = useSettingsStore()
 </script>
 
 <template>
@@ -14,7 +16,7 @@ import BackToTop from './BackToTop/index.vue'
           </keep-alive>
         </transition>
       </router-view>
-      <footer-bar/>
+      <footer-bar v-if="settingsStore.showFooter"/>
     </div>
 <!--    <back-to-top class="back-top"/>-->
   </section>
