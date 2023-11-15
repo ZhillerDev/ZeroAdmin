@@ -5,9 +5,11 @@ import Breadcrumb from "@/layouts/components/Breadcrumb/index.vue"
 import SideBar from "@/layouts/components/SideBar/index.vue"
 import Screenfull from "@/components/Screenfull/index.vue"
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue"
+import SettingsPlane from "@/components/SettingsPlane/index.vue"
 
-import { computed } from "vue"
-import { storeToRefs } from "pinia"
+// 导入其他钩子库等
+import {computed} from "vue"
+import {storeToRefs} from "pinia"
 import {useRouter} from "vue-router";
 import {useAppStore} from "@/store/module/app.ts";
 import {useSettingsStore} from "@/store/module/settings.ts";
@@ -17,8 +19,8 @@ const router = useRouter()
 const appStore = useAppStore()
 const settingsStore = useSettingsStore()
 
-const { sidebar, device } = storeToRefs(appStore)
-const { layoutMode, showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
+const {sidebar, device} = storeToRefs(appStore)
+const {layoutMode, showNotify, showThemeSwitch, showScreenfull, showSearchMenu} = storeToRefs(settingsStore)
 
 const isTop = computed(() => layoutMode.value === "top")
 const isMobile = computed(() => device.value === DeviceEnum.Mobile)
@@ -40,8 +42,9 @@ const logout = () => {
     <breadcrumb v-if="!isTop || isMobile" class="breadcrumb"/>
     <side-bar v-if="isTop && !isMobile" class="sidebar"/>
     <div class="right-menu">
-      <screenfull/>
-      <theme-switch/>
+      <screenfull v-if="settingsStore.showScreenfull"/>
+      <theme-switch v-if="showThemeSwitch"/>
+      <settings-plane/>
     </div>
   </div>
 </template>

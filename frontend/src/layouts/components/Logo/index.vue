@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import { storeToRefs } from "pinia"
-import { useSettingsStore } from "@/store/module/settings.ts"
+import {storeToRefs} from "pinia"
+import {useSettingsStore} from "@/store/module/settings.ts"
 import logo from "@/assets/layouts/logo.png?url"
-import logoText1 from "@/assets/layouts/logo-text-1.png?url"
-import logoText2 from "@/assets/layouts/logo-text-2.png?url"
+import logoText1 from "@/assets/layouts/logo-dark.png?url"
+import logoText2 from "@/assets/layouts/logo-light.png?url"
+import {useAppStore} from "@/store/module/app.ts";
+import {useTheme} from "@/hooks/useTheme.ts";
 
 interface Props {
   collapse?: boolean
@@ -14,17 +16,18 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const settingsStore = useSettingsStore()
-const { layoutMode } = storeToRefs(settingsStore)
+const {activeThemeName} = useTheme()
+const {layoutMode} = storeToRefs(settingsStore)
 </script>
 
 <template>
   <div class="layout-logo-container" :class="{ collapse: props.collapse, 'layout-mode-top': layoutMode === 'top' }">
     <transition name="layout-logo-fade">
       <router-link v-if="props.collapse" key="collapse" to="/">
-        <img :src="logo" class="layout-logo" />
+        <img :src="logo" class="layout-logo" alt="none"/>
       </router-link>
       <router-link v-else key="expand" to="/">
-        <img :src="layoutMode !== 'left' ? logoText2 : logoText1" class="layout-logo-text" />
+        <img :src="activeThemeName==='dark' ? logoText1 : logoText2" class="layout-logo-text" alt="none"/>
       </router-link>
     </transition>
   </div>
@@ -39,11 +42,14 @@ const { layoutMode } = storeToRefs(settingsStore)
   background-color: transparent;
   text-align: center;
   overflow: hidden;
+
   .layout-logo {
     display: none;
   }
+
   .layout-logo-text {
-    height: 100%;
+    height: 60%;
+    width: 60%;
     vertical-align: middle;
   }
 }
@@ -60,6 +66,7 @@ const { layoutMode } = storeToRefs(settingsStore)
     vertical-align: middle;
     display: inline-block;
   }
+
   .layout-logo-text {
     display: none;
   }

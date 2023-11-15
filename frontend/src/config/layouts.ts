@@ -5,7 +5,7 @@ export interface LayoutSettings {
     /** 是否显示 Settings Panel */
     showSettings: boolean
     /** 布局模式 */
-    layoutMode: "left" | "top" | "left-top"
+    layoutMode: "left" | "top"
     /** 是否显示标签栏 */
     showTagsView: boolean
     /** 是否显示 Logo */
@@ -24,12 +24,6 @@ export interface LayoutSettings {
     showSearchMenu: boolean
     /** 是否缓存标签栏 */
     cacheTagsView: boolean
-    /** 开启系统水印 */
-    showWatermark: boolean
-    /** 是否显示灰色模式 */
-    showGreyMode: boolean
-    /** 是否显示色弱模式 */
-    showColorWeakness: boolean
 }
 
 /** 默认配置 */
@@ -45,9 +39,6 @@ const defaultSettings: LayoutSettings = {
     showScreenfull: true,
     showSearchMenu: true,
     cacheTagsView: false,
-    showWatermark: true,
-    showGreyMode: false,
-    showColorWeakness: false
 }
 
 /** 项目配置 */
