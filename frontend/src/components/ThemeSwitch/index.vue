@@ -20,12 +20,17 @@ const clickHandler = (data) => {
 </script>
 
 <template>
-  <t-dropdown :options="options" @click="clickHandler">
-    <t-button theme="default" variant="text" shape="square">
-      <t-icon name="contrast"/>
-    </t-button>
-  </t-dropdown>
+  <div class="theme-container">
+    <t-dropdown :options="options" @click="clickHandler" >
+      <t-button theme="default" variant="text" shape="square">
+        <t-icon name="contrast"/>
+      </t-button>
+    </t-dropdown>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.theme-container{
+  margin-right: 10px;
+}
 </style>

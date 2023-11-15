@@ -20,7 +20,7 @@ const toggleClick = () => {
 
 <template>
   <t-button theme="default" variant="text" shape="square" @click="toggleClick">
-    <t-icon :name="isActive?'chevron-left-double-s':'chevron-right-double-s'"/>
+    <t-icon :name="isActive?'menu-unfold':'menu-fold'"/>
   </t-button>
 </template>
 

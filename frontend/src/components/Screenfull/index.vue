@@ -2,6 +2,8 @@
 import {computed, ref, watchEffect} from "vue"
 import screenfull from "screenfull"
 import {msgError} from "@/utils/msg-util.ts";
+import { Icon } from 'tdesign-icons-vue-next';
+
 
 interface Props {
   /** 全屏的元素，默认是 html */
@@ -10,8 +12,6 @@ interface Props {
   openTips?: string
   /** 关闭全屏提示语 */
   exitTips?: string
-  /** 是否只针对内容区 */
-  content?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,31 +45,16 @@ watchEffect((onCleanup) => {
   })
 })
 //#endregion
-
-//#region 内容区
-const isContentLarge = ref<boolean>(false)
-const contentLargeTips = computed(() => {
-  return isContentLarge.value ? "内容区复原" : "内容区放大"
-})
-const contentLargeSvgName = computed(() => {
-  return isContentLarge.value ? "fullscreen-exit" : "fullscreen"
-})
-const handleContentLargeClick = () => {
-  document.body.className = !isContentLarge.value ? "content-large" : ""
-  isContentLarge.value = !isContentLarge.value
-}
-//#endregion
 </script>
 
 <template>
-  <div>
+  <div class="screen-container">
     <t-tooltip
-        v-if="!content"
         placement="bottom"
         :content="fullscreenTips"
     >
       <t-button theme="default" variant="text" shape="square" @click="handleFullscreenClick">
-        <t-icon :name="fullscreenSvgName"/>
+        <icon :name="fullscreenSvgName" size="medium"/>
       </t-button>
     </t-tooltip>
 
@@ -89,4 +74,7 @@ const handleContentLargeClick = () => {
 </template>
 
 <style lang="scss" scoped>
+.screen-container{
+  margin-right: 10px;
+}
 </style>

@@ -21,6 +21,10 @@ public class ResultUtil {
         return new R<>(0, data, "ok");
     }
 
+    public static <T> R<T> success(T data, String message) {
+        return new R<>(0, data, message);
+    }
+
     /**
      * 成功
      *

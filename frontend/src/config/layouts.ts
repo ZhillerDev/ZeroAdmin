@@ -24,6 +24,8 @@ export interface LayoutSettings {
     showSearchMenu: boolean
     /** 是否缓存标签栏 */
     cacheTagsView: boolean
+    /* 是否为大图标 */
+    isBigIcons:boolean
 }
 
 /** 默认配置 */
@@ -39,6 +41,7 @@ const defaultSettings: LayoutSettings = {
     showScreenfull: true,
     showSearchMenu: true,
     cacheTagsView: false,
+    isBigIcons:false
 }
 
 /** 项目配置 */

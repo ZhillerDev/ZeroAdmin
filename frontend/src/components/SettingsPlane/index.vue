@@ -12,11 +12,8 @@ const {
   showLogo,
   fixedHeader,
   showFooter,
-  showNotify,
   showThemeSwitch,
   showScreenfull,
-  showSearchMenu,
-  cacheTagsView,
 } = storeToRefs(settingsStore)
 
 const settingsText = {
@@ -37,7 +34,7 @@ const handleClick = () => {
 };
 
 const resetSettings = async () => {
-  dialogConfirm("确认重置？", "此操作将会将所有设置回归初始状态，请谨慎操作",():void=>{
+  dialogConfirm("确认重置？", "此操作将会将所有设置回归初始状态，请谨慎操作", (): void => {
     resetConfigLayout()
     visible.value = false
   })
@@ -45,16 +42,18 @@ const resetSettings = async () => {
 </script>
 
 <template>
-  <t-tooltip
-      placement="bottom"
-      content="打开设置"
-  >
-    <t-button theme="default" variant="text" shape="square" @click="handleClick">
-      <t-icon name="setting"/>
-    </t-button>
-  </t-tooltip>
+  <div class="setting-container">
+    <t-tooltip
+        placement="bottom"
+        content="打开设置"
+    >
+      <t-button theme="default" variant="text" shape="square" @click="handleClick">
+        <t-icon name="setting"/>
+      </t-button>
+    </t-tooltip>
+  </div>
 
-  <t-drawer v-model:visible="visible" header="全局设置" close-on-esc-keydown="true">
+  <t-drawer v-model:visible="visible" header="全局设置">
     <t-space direction="vertical" size="small" style="width: 100%">
       <div style="font-weight: bold">温馨提示</div>
       <span>此处的所有内容均为点击后即刻生效，且具备记忆功能，如要重置可点击底侧按钮</span>
@@ -91,5 +90,7 @@ const resetSettings = async () => {
 </template>
 
 <style scoped lang="scss">
-
+.setting-container {
+  margin-right: 10px;
+}
 </style>
