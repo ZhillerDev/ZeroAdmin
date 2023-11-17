@@ -4,7 +4,6 @@ import {useSettingsStore} from "@/store/module/settings.ts"
 import logo from "@/assets/layouts/logo.png?url"
 import logoText1 from "@/assets/layouts/logo-dark.png?url"
 import logoText2 from "@/assets/layouts/logo-light.png?url"
-import {useAppStore} from "@/store/module/app.ts";
 import {useTheme} from "@/hooks/useTheme.ts";
 
 interface Props {

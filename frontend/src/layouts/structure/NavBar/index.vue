@@ -2,10 +2,11 @@
 // 导入必备组件
 import Hamburger from "@/layouts/components/Hamburger/index.vue"
 import Breadcrumb from "@/layouts/components/Breadcrumb/index.vue"
-import SideBar from "@/layouts/components/SideBar/index.vue"
+import SideBar from "@/layouts/structure/SideBar/index.vue"
 import Screenfull from "@/components/Screenfull/index.vue"
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue"
 import SettingsPlane from "@/components/SettingsPlane/index.vue"
+import UserInfo from "@/components/UserInfo/index.vue"
 
 // 导入其他钩子库等
 import {computed} from "vue"
@@ -20,7 +21,7 @@ const appStore = useAppStore()
 const settingsStore = useSettingsStore()
 
 const {sidebar, device} = storeToRefs(appStore)
-const {layoutMode, showNotify, showThemeSwitch, showScreenfull, showSearchMenu} = storeToRefs(settingsStore)
+const {layoutMode, showThemeSwitch, isBigIcons} = storeToRefs(settingsStore)
 
 const isTop = computed(() => layoutMode.value === "top")
 const isMobile = computed(() => device.value === DeviceEnum.Mobile)
@@ -37,7 +38,7 @@ const logout = () => {
 </script>
 
 <template>
-  <div class="navigation-bar">
+  <div class="navigation-bar" :class="{'navigation-bar-big-icon':isBigIcons}">
     <hamburger v-if="!isTop || isMobile" class="hamburger" :is-active="sidebar.opened" @toggle-click="toggleSidebar"/>
     <breadcrumb v-if="!isTop || isMobile" class="breadcrumb"/>
     <side-bar v-if="isTop && !isMobile" class="sidebar"/>
@@ -45,11 +46,16 @@ const logout = () => {
       <screenfull v-if="settingsStore.showScreenfull"/>
       <theme-switch v-if="showThemeSwitch"/>
       <settings-plane/>
+      <user-info/>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.navigation-bar-big-icon {
+  height: var(--v3-navigationbar-bigicon-height) !important;
+}
+
 .navigation-bar {
   height: var(--v3-navigationbar-height);
   overflow: hidden;

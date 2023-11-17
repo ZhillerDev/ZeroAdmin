@@ -1,0 +1,71 @@
+# ??????
+zer:
+  name: ZerAdmin
+  version: 1.0.0
+  copyrightYear: 2023
+  demoEnabled: true
+  profile: D:/ruoyi/uploadPath
+  addressEnabled: false
+  captchaType: math
+
+# spring全局配置
+spring:
+  profiles:
+    active: dev
+  # 文件上传
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size: 10MB
+      # 设置总上传的文件大小
+      max-request-size: 20MB
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  output:
+    ansi:
+      enabled: always
+
+
+# 服务端全局配置
+server:
+  port: 10085
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    accept-count: 100
+    threads:
+      max: 800
+      min-spare: 100
+
+#  # 日志配置
+#  logging:
+#    level:
+#      com.backend: debug
+#      org.springframework: warn
+
+  # 用户配置
+  user:
+    password:
+      # 密码最大错误次数
+      maxRetryCount: 5
+      # 密码锁定时间（默认10分钟）
+      lockTime: 10
+
+  # token配置
+  token:
+    # 令牌自定义标识
+    header: Authorization
+    # 令牌密钥
+    secret: abcdefghijklmnopqrstuvwxyz
+    # 令牌有效期（默认30分钟）
+    expireTime: 30
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+  params: count=countSql

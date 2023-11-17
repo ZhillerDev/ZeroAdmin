@@ -20,7 +20,8 @@ export const msgError = (title: string, placement: MessagePlacementList, duratio
 
 // 带确认取消按钮的对话框
 // 包含一个回调函数用于确认用户点击状态
-export const dialogConfirm = (title: string, content: string, onSuccess: () => any = {}) => {
+export const dialogConfirm = (title: string, content: string, onSuccess: () => any = () => {
+}) => {
     const dialog = DialogPlugin.confirm({
         header: title,
         body: content,

@@ -5,6 +5,7 @@ import App from './App.vue'
 // 关键支持组件
 import store from "@/store";
 import router from "@/router";
+import "@/router/permission.ts"
 
 // 样式
 import VXETable from 'vxe-table'

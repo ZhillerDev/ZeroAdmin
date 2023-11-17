@@ -3,7 +3,7 @@
 import useResize from "@/hooks/useResize.ts";
 import {useAppStore} from "@/store/module/app.ts";
 import {useSettingsStore} from "@/store/module/settings.ts";
-import {AppMain, NavBar, SideBar, TagsBar} from "./components";
+import {AppMain, NavBar, SideBar, TagsBar} from "./structure";
 import {storeToRefs} from "pinia";
 
 import {computed} from "vue";

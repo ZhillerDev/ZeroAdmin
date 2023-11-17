@@ -13,6 +13,7 @@ declare module 'vue' {
     Screenfull: typeof import('./src/components/Screenfull/index.vue')['default']
     SettingsPlane: typeof import('./src/components/SettingsPlane/index.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
+    TAvatar: typeof import('tdesign-vue-next')['Avatar']
     TBreadcrumb: typeof import('tdesign-vue-next')['Breadcrumb']
     TBreadcrumbItem: typeof import('tdesign-vue-next')['BreadcrumbItem']
     TButton: typeof import('tdesign-vue-next')['Button']
@@ -20,8 +21,11 @@ declare module 'vue' {
     TDivider: typeof import('tdesign-vue-next')['Divider']
     TDrawer: typeof import('tdesign-vue-next')['Drawer']
     TDropdown: typeof import('tdesign-vue-next')['Dropdown']
+    TForm: typeof import('tdesign-vue-next')['Form']
+    TFormItem: typeof import('tdesign-vue-next')['FormItem']
     ThemeSwitch: typeof import('./src/components/ThemeSwitch/index.vue')['default']
     TIcon: typeof import('tdesign-vue-next')['Icon']
+    TImage: typeof import('tdesign-vue-next')['Image']
     TInput: typeof import('tdesign-vue-next')['Input']
     TList: typeof import('tdesign-vue-next')['List']
     TListItem: typeof import('tdesign-vue-next')['ListItem']
@@ -31,5 +35,6 @@ declare module 'vue' {
     TSubmenu: typeof import('tdesign-vue-next')['Submenu']
     TSwitch: typeof import('tdesign-vue-next')['Switch']
     TTooltip: typeof import('tdesign-vue-next')['Tooltip']
+    UserInfo: typeof import('./src/components/UserInfo/index.vue')['default']
   }
 }

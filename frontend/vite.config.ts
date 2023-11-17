@@ -13,7 +13,7 @@ import {TDesignResolver} from 'unplugin-vue-components/resolvers';
 // https://vitejs.dev/config/
 export default ({command, mode}: ConfigEnv): UserConfig => {
     const env = loadEnv(mode, process.cwd())
-    const {VITE_PUBLIC_PATH} = env
+    const {VITE_PUBLIC_PATH, VITE_BACKEND_URL} = env
     return (
         {
             base: VITE_PUBLIC_PATH,
@@ -46,14 +46,13 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
                 /** 接口代理 */
                 proxy:
                     {
-                        "/api/v1":
+                        "/api":
                             {
-                                target: "https://www.fastmock.site/mock/761e2dda2b8890ab86c928a74e8f6538",
-                                ws:
-                                    true,
+                                target: VITE_BACKEND_URL,
+                                ws: true,
                                 /** 是否允许跨域 */
-                                changeOrigin:
-                                    true
+                                changeOrigin: true,
+                                rewrite: (path) => path.replace(/^\/api/, '')
                             }
                     }
             }
