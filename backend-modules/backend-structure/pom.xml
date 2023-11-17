@@ -53,6 +53,11 @@
             <groupId>com.github.oshi</groupId>
             <artifactId>oshi-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.backend</groupId>
+            <artifactId>backend-service</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
